@@ -1,0 +1,14 @@
+# 1. Installer FastAPI et Uvicorn
+pip install fastapi uvicorn
+
+# 2. Installer MariaDB connector
+pip install mariadb
+
+# 3. Installer HTTPX pour les requêtes HTTP
+pip install httpx
+
+# 4. Installer Pydantic pour la validation
+pip install pydantic
+
+# OU en une seule commande :
+pip install fastapi uvicorn mariadb httpx pydantic

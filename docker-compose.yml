@@ -1,0 +1,18 @@
+services:
+  # Service 1 : Microservice Spring Boot (User Service)
+  user-service:
+    build: ./user-service
+    container_name: user-service-container
+    ports:
+      - "8083:8080"  # Host:Container
+    environment:
+      - JWT_SECRET=agrotrackSecretKey1234567890agrotrackSecretKey1234567890
+      - SPRING_PROFILES_ACTIVE=docker
+      # Configuration pour accéder aux services locaux depuis Docker
+      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/userdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=AA0556563a
+    # Si vous voulez redémarrer automatiquement en cas d'échec
+    restart: unless-stopped
+    # Pour voir les logs en couleur
+    tty: true
